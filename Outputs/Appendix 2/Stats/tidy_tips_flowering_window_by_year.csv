@@ -1,0 +1,6 @@
+year,number_of_flowering_observations,earliest_flowering_day,latest_flowering_day,flowering_start_10th_percentile,flowering_end_90th_percentile,median_flowering_day,flowering_duration_days
+2021,185,60,308,83.4,137,108,54.599999999999994
+2022,225,42,161,64,127.79999999999998,92,64.79999999999998
+2023,669,2,358,77,133,106,57
+2024,318,45,219,82,138,110,57
+2025,307,14,357,90,151,116,62
