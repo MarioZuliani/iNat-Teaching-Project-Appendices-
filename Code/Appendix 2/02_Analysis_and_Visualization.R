@@ -166,8 +166,6 @@ window_plot <- ggplot(
   labs(
     x = "Day of Year",
     y = "Year",
-    title = "Main Flowering Window of Tidy Tips",
-    subtitle = "Lines show the 10th to 90th percentile of flowering observations; points show the median"
   ) +
   theme_classic()
 
@@ -199,8 +197,6 @@ duration_plot <- ggplot(
   labs(
     x = "Year",
     y = "Flowering Duration in Days",
-    title = "Observed Flowering Duration of Tidy Tips",
-    subtitle = "Duration is based on the 10th to 90th percentile flowering window"
   ) +
   theme_classic()
 
@@ -230,8 +226,6 @@ observations_plot <- ggplot(
   labs(
     x = "Year",
     y = "Day of Year",
-    title = "Timing of Flowering Observations of Tidy Tips",
-    subtitle = "Each point is one iNaturalist observation with visible flowers"
   ) +
   theme_classic()
 
