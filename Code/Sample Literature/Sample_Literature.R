@@ -93,7 +93,7 @@ framework_colors <- c(
 ggplot(
   category_summary,
   aes(
-    x = reorder(Category, -Number),
+    x = reorder(Category, Number),
     y = Number,
     fill = Category
   )
@@ -102,24 +102,57 @@ ggplot(
   geom_text(
     aes(label = paste0(Number, " (", round(Percent, 1), "%)")),
     hjust = -0.12,
-    size = 4
+    size = 5,
+    fontface = "bold"
   ) +
-  coord_flip() +
+  coord_flip(clip = "off") +
   scale_fill_manual(values = framework_colors) +
+  
+  # Wrap long category names onto two lines
+  scale_x_discrete(
+    labels = function(x) stringr::str_wrap(x, width = 30)
+  ) +
+  
+  # Leave only enough room for the labels
   scale_y_continuous(
-    breaks = 0:nrow(relevant_dat),
-    limits = c(0, nrow(relevant_dat) + 1.5),
+    breaks = 0:18,
+    limits = c(0, 18),
     expand = expansion(mult = c(0, 0))
   ) +
+  
   labs(
     x = NULL,
-    y = "Number of Manuscripts",
+    y = "Number of Manuscripts"
   ) +
-  theme_classic(base_size = 13) +
+  
+  theme_classic(base_size = 15) +
   theme(
     legend.position = "none",
-    plot.title = element_text(face = "bold"),
-    axis.text.y = element_text(size = 11)
+    
+    axis.title.x = element_text(
+      size = 16,
+      face = "bold",
+      margin = margin(t = 10)
+    ),
+    
+    axis.text.x = element_text(
+      size = 13,
+      face = "bold"
+    ),
+    
+    axis.text.y = element_text(
+      size = 15,
+      face = "bold",
+      lineheight = 0.95
+    ),
+    
+    # Controls the actual shape of the plotting panel
+    aspect.ratio = 0.80,
+    
+    plot.margin = margin(
+      t = 10,
+      r = 20,
+      b = 10,
+      l = 10
+    )
   )
-
-
